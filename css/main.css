@@ -1,0 +1,902 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* ########## Global ########### */
+:root {
+    --main-color: #19283f;
+    --second-color: #00B0FF;
+    --main-transition: .7s;
+}
+
+body {
+    height: 1000px;
+    position: relative;
+    padding-top: 70px;
+    overflow-x: hidden;
+    font-family: 'Catamaran', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ########## Main Title Start ############ */
+.main-title {
+    margin: 100px auto;
+    position: relative;
+    border: 2px solid black;
+    width: fit-content;
+    padding: 10px 20px;
+    z-index: 99;
+}
+
+.main-title:hover {
+    color: white;
+    border: 2px solid white;
+    transition-delay: .5s;
+}
+
+.main-title::before,
+.main-title::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.main-title::before {
+    left: -30px;
+
+}
+
+.main-title::after {
+    right: -30px;
+}
+
+.main-title:hover::before {
+    z-index: -1;
+    animation: move-left .5s linear forwards;
+}
+
+@keyframes move-left {
+    50% {
+        left: 0;
+        height: 12px;
+        width: 12px;
+    }
+
+    100% {
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+.main-title:hover::after {
+    z-index: -1;
+    animation: move-right .5s linear forwards;
+}
+
+@keyframes move-right {
+    50% {
+        right: 0;
+        height: 12px;
+        width: 12px;
+    }
+
+    100% {
+        right: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+/* ########## Main Title end ############ */
+
+/* ######## Navbar Start ########### */
+.navbar {
+    background-color: var(--main-color);
+    height: 70px;
+}
+
+.navbar .container .navbar-brand {
+    font-size: 29px;
+    font-weight: bold;
+}
+
+.navbar .container .navbar-brand span {
+    color: var(--second-color);
+}
+
+.navbar .container .navbar-nav .nav-item .nav-link {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar .container .navbar-nav .nav-item .nav-link:hover {
+    color: var(--second-color);
+}
+
+.active {
+    color: var(--second-color);
+}
+
+.navbar .container .navbar-nav .nav-item .nav-link.active {
+    color: var(--second-color);
+}
+
+@media (max-width:991px) {
+    .navbar .nav-item .nav-link {
+        padding: 9px;
+        text-align: center;
+    }
+}
+/* ############## Navbar End ########## */
+
+/* ########## landing ############ */
+.landing {
+    background-color: var(--main-color);
+}
+
+.landing {
+    min-height: 100vh;
+}
+
+@media (max-width:991px) {
+    .landing img {
+        display: none;
+    }
+
+    .landing .text {
+        text-align: center;
+    }
+}
+
+.landing .text {
+    position: relative;
+}
+
+.landing .text span {
+    color: var(--second-color);
+}
+
+.landing .mybutton {
+    width: 220px;
+    margin: 15px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--second-color);
+    padding: 10px 5px;
+    border-radius: 15px;
+    background: none;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    font-weight: bold;
+    z-index: 99;
+    position: relative;
+}
+
+.landing .mybutton::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 12px;
+    width: 100%;
+    height: 0;
+    background-color: var(--second-color);
+    z-index: -1;
+    transition: var(--main-transition);
+}
+
+.landing .mybutton:hover::before {
+    height: 100%;
+}
+
+.landing img {
+    width: 500px;
+    margin-right: 100px;
+    position: relative;
+    animation: up-and-down 4s linear infinite;
+}
+/* ##### image animation ######## */
+@keyframes up-and-down {
+
+    0%,
+    100% {
+        top: 0;
+    }
+
+    50% {
+        top: -50px;
+    }
+}
+/* ############# Landing End ############ */
+
+/* ############ Subjects Start ########### */
+.subjects .box_subs {
+    cursor: pointer;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
+    position: relative;
+    counter-increment: subjects;
+    transition: var(--main-transition);
+    margin: 0 20px 50px;
+}
+
+.subjects .box_subs:hover {
+    transform: translateY(-10px);
+}
+
+.subjects .box_subs::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    transform: translateX(-50%);
+    height: 0;
+    width: 4px;
+    bottom: 0;
+    background-color: var(--main-color);
+    transition: var(--main-transition);
+}
+
+.subjects .box_subs:hover::before {
+    height: 100%;
+}
+
+.subjects .box_subs::after {
+    content: "";
+    position: absolute;
+    right: -3px;
+    transform: translateX(-50%);
+    height: 0;
+    width: 4px;
+    top: 0;
+    background-color: var(--main-color);
+    transition: var(--main-transition);
+}
+
+
+.subjects .box_subs:hover::after {
+    height: 100%;
+}
+
+.subjects .box_subs svg {
+    margin: 30px auto 20px;
+    text-align: center;
+    display: block;
+    font-size: 40px;
+    color: #d5d5d5;
+    ;
+}
+
+.subjects .box_subs h3 {
+    text-align: center;
+    margin: 0 0 20px;
+    font-size: 22px;
+    color: var(--main-color);
+}
+
+.subjects .box_subs .info {
+    background-color: #fafafa;
+    padding: 15px;
+    text-align: right;
+    position: relative;
+    width: calc(100% + 12px);
+}
+
+.subjects .box_subs .info::before {
+    content: "0" counter(subjects);
+    position: absolute;
+    left: -12px;
+    top: 0;
+    background-color: var(--main-color);
+    height: 100%;
+    width: 90px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.subjects .box_subs .info::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: calc(100% + .7px);
+    top: 0;
+    left: 58px;
+    background-color: #d5d5d5;
+    transform: skewX(-30deg);
+}
+
+.subjects .box_subs .info a {
+    color: var(--second-color);
+    font-weight: bold;
+}
+/* ############ Subjects End ######### */
+
+/* ############## Courses Start #############courses */
+.courses {
+    background-color: #ececec;
+}
+
+.courses .container .row .card {
+    box-shadow: 0 2px 10px rgba(238, 237, 237, 0.226);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform .3s, box-shadow .3s;
+    cursor: pointer;
+    user-select: none;
+    margin: 0 20px 20px;
+    padding: 0;
+}
+
+@media (min-width: 767px) {
+    .courses .container .card {
+        margin: 0 25px 45px;
+    }
+}
+
+.courses .card .card-body .card-title {
+    font-size: 22px;
+}
+
+.courses .card .card-body p {
+    font-size: 15px;
+    color: #777;
+    line-height: 1.6;
+}
+
+.courses .card .imgs {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.courses .card .imgs img {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    transition: all linear .9s;
+    object-fit: cover;
+}
+
+.courses .card .imgs .img-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.courses .card .imgs:hover .img-hover {
+    opacity: 1;
+}
+
+.courses .container .row .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.402);
+}
+
+.courses .container .row .card .img-card {
+    max-width: 100%;
+}
+
+.courses .container .row .card .info {
+    background-color: #fafafa;
+    padding: 20px;
+    border-top: 1px solid rgba(172, 166, 166, 0.232);
+}
+
+.courses .container .row .card .info a {
+    color: var(--second-color);
+    font-weight: bold;
+}
+
+.courses .container .row .card .info svg {
+    color: var(--second-color);
+}
+
+.courses .container .row .card:hover svg {
+    animation: arrow-movement .5s linear infinite;
+}
+
+@keyframes arrow-movement {
+    100% {
+        transform: translateX(10px);
+    }
+}
+
+.courses .container .more {
+    text-align: center;
+    margin: 15px auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--second-color);
+    padding: 15px 20px;
+    border-radius: 15px;
+    background: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.courses .more a {
+    color: var(--second-color);
+    font-weight: bold;
+    z-index: 2;
+}
+
+.courses .container .more::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+    width: 0;
+    height: 0;
+    background-color: var(--second-color);
+    z-index: 0;
+    transition: var(--main-transition);
+}
+
+.courses .container .more:hover::before {
+    height: 100%;
+    width: 100%;
+}
+
+.courses .more:hover a {
+    color: white;
+}
+/* ############# Courses end ############ */
+
+
+/* ############ Features Start ########## */
+.features img {
+    width: 400px;
+    position: relative;
+    cursor: pointer;
+}
+
+.features .box {
+    padding: 7px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background-color: #19283f0f;
+}
+
+.features .box::before {
+    content: attr(data-work);
+    position: absolute;
+    background-color: #00aeff4e;
+    width: calc(100% - 14px);
+    height: calc(100% - 14px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1.5rem;
+    transform: translateY(calc(-100% - 5px));
+    z-index: 2;
+}
+
+.features .box:hover::before {
+    transform: translateY(0);
+}
+/* ############ Features End ########## */
+
+/* ########### Testimonials Start ############ */
+.testimonials {
+    background-color: #ececec;
+}
+
+.testimonials .container {
+    padding: 0;
+}
+
+.testimonials .box {
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
+    border-radius: 6px;
+    position: relative;
+    margin: 0 auto 80px;
+    cursor: pointer;
+    box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
+}
+
+
+.testimonials .box img {
+    position: absolute;
+    right: -10px;
+    top: -50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 10px solid #ececec;
+}
+
+.testimonials .box h3 {
+    margin: 0 0 10px;
+}
+
+.testimonials .box .title {
+    color: #777;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.testimonials .box .rate .filled {
+    color: #ffc107;
+}
+
+.testimonials .box p {
+    line-height: 1.5;
+    color: #777;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+/* ############## Testimonials End ##########  */
+
+/* ############# Subscriptions Start ######## */
+.subscriptions .modal-content{
+    background-color: var(--main-color);
+}
+.subscriptions .modal-header button{
+    color: white;
+    border: none;
+    outline: none;
+}
+
+.subscriptions .modal-header button svg{
+    font-size: 22px;
+}
+
+.subscriptions .modal-body{
+    font-size: 23px;
+}
+
+
+.subscriptions .modal-title{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.subscriptions .modal-body{
+    font-size: 23px;
+}
+
+.subscriptions .modal-footer{
+    border-top-color: #ececec17 ;
+}
+
+.subscriptions .box {
+    background-color: var(--main-color);
+    text-align: center;
+    box-shadow: 0 12px 20px 0 rgba(47, 47, 47, 0.494), 0 2px 4px 0 rgba(242, 238, 238, 0.12);
+    z-index: 1;
+    transition: var(--main-transition);
+    position: relative;
+    border-radius: 13px;
+    margin: 0;
+    user-select: none;
+}
+
+.subscriptions .box::before,
+.subscriptions .box::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0;
+    z-index: 99;
+    background-color: rgba(255, 255, 255, 0.088);
+    transition: var(--main-transition);
+}
+
+.subscriptions .box::before {
+    top: 0;
+    left: 0;
+}
+
+.subscriptions .box::after {
+    bottom: 0;
+    right: 0;
+}
+
+.subscriptions .box:hover::before,
+.subscriptions .box:hover::after {
+    height: 50%;
+}
+
+.subscriptions .advanced {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.subscriptions .advanced .label {
+    background-color: var(--second-color);
+    padding: 20px 7px 30px 10px;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    width: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    writing-mode: vertical-rl;
+    z-index: 2;
+}
+
+.subscriptions .advanced .label::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 1px;
+    border-style: solid;
+    border-width: 20px;
+    border-color: transparent transparent var(--main-color);
+    z-index: -1;
+}
+
+.subscriptions .box .title {
+    padding: 20px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.subscriptions .box img {
+    width: 80px;
+    margin: 0 auto 30px;
+}
+
+.subscriptions .box .pricing {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.subscriptions .box .pricing .much {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.subscriptions .pricing .when {
+    color: #fafafa7d;
+}
+
+.subscriptions .box .advantages {
+    padding: 20px 0 10px;
+    margin: 0;
+}
+
+.subscriptions .box .advantages li {
+    padding: 15px 14px;
+    position: relative;
+    font-size: 18px;
+}
+
+.subscriptions .box .advantages li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #fafafa50;
+}
+
+.subscriptions .box .advantages li .fa-check {
+    margin-right: 10px;
+    color: #2dde98;
+    font-weight: bold;
+}
+
+.subscriptions .box .advantages li .fa-xmark {
+    margin-right: 10px;
+    color: red;
+    font-weight: bold;
+}
+
+.subscriptions .box a {
+    border: 2px solid var(--second-color);
+    padding: 10px 15px;
+    color: white;
+    margin-bottom: 15px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    z-index: 999;
+}
+
+.subscriptions .box a:hover {
+    background-color: #00B0FF;
+}
+/* ############# Subscriptions End ######## */
+
+
+/* ################ Contact Start ################## */
+.contact {
+    background-color: #ecececcf;
+}
+
+
+.contact .image img {
+    width: 600px;
+}
+
+
+@media (max-width: 991px) {
+    .contact .image img {
+        display: none;
+    }
+}
+
+
+.contact .contact-form form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (max-width: 991px) {
+    .contact .contact-form {
+        margin: 0 auto;
+        padding: 0;
+    }
+}
+
+.contact .contact-form .content h2 {
+    padding: 10px 15px;
+    text-align: center;
+
+}
+
+.contact .contact-form form .input {
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+    padding: 14px 10px;
+    border: none;
+    outline: none;
+    caret-color: var(--main-color);
+    border-bottom: 1px solid var(--main-color);
+    width: 400px;
+}
+
+
+.contact .contact-form form .input:focus{
+    border-bottom: 1px solid var(--second-color);
+
+}
+
+.contact .contact-form form textarea {
+    height: 200px;
+    resize: none;
+}
+
+.contact .contact-form form .submit {
+    background-color: none;
+    padding: 10px 15px;
+    border: 1px solid var(--second-color);
+    font-weight: bold;
+    color: var(--main-color);
+    width: 160px;
+    font-size: 20px;
+    transition: var(--main-transition);
+}
+
+.contact .contact-form form .submit:hover {
+    background-color: var(--second-color);
+    color: white;
+}
+/* ################ Contact End ################## */
+
+
+/* ############## Footer Start ############## */
+.footer .container .title h2 {
+    color: white;
+}
+
+.footer .container .title h2 span {
+    color: var(--second-color);
+}
+
+.footer .container .title p {
+    line-height: 1.7;
+    letter-spacing: .09rem;
+}
+
+
+.footer .container .social svg {
+    font-size: 25px;
+    cursor: pointer;
+    padding: 10px 7px;
+}
+
+
+.footer .container .social .fa-facebook:hover {
+    color: #1877f2;
+}
+
+.footer .container .social .fa-linkedin:hover {
+    color: #0077b5;
+}
+
+.footer .container .social .fa-youtube:hover {
+    color: #ff0000;
+}
+
+.footer .container .social .fa-twitter:hover {
+    color: #1da1f2;
+}
+
+
+.footer .container .useful-links a {
+    color: #777;
+}
+
+
+.footer .container .useful-links a:hover {
+    color: white;
+}
+
+
+.footer .container .contact-me p {
+    cursor: pointer;
+}
+
+.footer .container .contact-me p svg {
+    margin-right: 10px;
+}
+
+.footer .container .contact-me p:hover {
+    color: white;
+}
+
+/* ########## Scroll To Top Button ############# */
+.top {
+    position: fixed;
+    right: -50px;
+    bottom: 50px;
+    background-color: var(--main-color);
+    padding: 5px 10px;
+    color: white;
+    transition: var(--main-transition);
+    border-radius: 5px;
+}
+
+.top svg {
+    color: white;
+}
+
+.top:hover {
+    transform: translateY(-15px);
+}
+
+.top.show {
+    right: 10px;
+    z-index: 10000;
+}
